@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="prns.css">
+    <style>
+        *
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav
+{
+    background-color: rgb(7, 7, 7);
+    text-align: center;
+    font-size: 40px;
+    color: aliceblue;
+}
+.frm
+{
+    background-color: burlywood;
+    height: 92vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sel
+{
+    border-radius: 8px;
+    background-color: rgb(255, 235, 120);
+}
+select
+{
+    height: 30px;
+    width: 80px;
+}
+.but
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: aquamarine;
+}
+button
+{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(231, 255, 154);
+    border-radius: 8px;
+}
+input
+{
+    height: 30px;
+    width: 80px;
+    border-radius: 8px;
+    background-color: rgb(255, 235, 120);
+}
+    </style>
+</head>
+<body>
+     <nav>
+        <div class="head">
+            ATTENDANCE
+        </div>
+     </nav>
+     <div>
+        <div class="frm">
+            <form action="/qr" method="post">
+                <div class="branch" id="inn">
+                    BRANCH :&nbsp;&nbsp;
+                </div>
+                <br>
+                <div class="batch" id="inn">
+                    BATCH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;
+                </div>
+                <br>
+                <div class="sec" id="inn">
+                    SECTION :&nbsp;&nbsp;
+                </div>
+                <br>
+                <div class="sub" id="inn">
+                    SUBJECT :&nbsp;&nbsp;
+                </div>
+                <br>
+                <div class="sub" id="inn">
+                    PRN :&nbsp;&nbsp;
+                    <input type="number" name="prn">
+                </div>
+                <br>
+                <div class="but">
+                    <button>MARK</button>
+                </div>
+            </form>
+        </div>
+     </div>
+</body>
+</html>

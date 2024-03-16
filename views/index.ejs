@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic QR Code Generator</title>
+    <link rel="stylesheet" href="n.css">
+</head>
+<body>
+    <div id="qrcode-container">
+        <img id="qrcode" src="" alt="QR Code">
+    </div>
+    <script>
+        const data = <%- JSON.stringify(data) %>
+    </script>
+    <script src="pqr.js"></script>
+</body>
+</html>
