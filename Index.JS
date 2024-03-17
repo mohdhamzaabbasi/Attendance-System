@@ -33,7 +33,7 @@ app.get("/",(req,res)=>{
     res.render("new.ejs");
 });
    
-app.post("/qr",(req,res)=>{
+app.post("/qr",(req,respo)=>{
     let data=req.body;
     console.log(data);
     let q=`SELECT * FROM COURSE WHERE SECID = (SELECT SECID FROM SECTION WHERE SECNAME='${data.sec}') AND SID = (SELECT SID FROM SUBJECT WHERE SNAME='${data.sub}') AND FID = (SELECT FID FROM FACULTY WHERE FPASS=${data.pass})`;
@@ -46,7 +46,7 @@ app.post("/qr",(req,res)=>{
         console.log(resp);
         if(resp.length==0)
         {
-            res.redirect("/");
+            respo.redirect("/");
         }
         else
         {
@@ -65,6 +65,10 @@ app.post("/qr",(req,res)=>{
                             {
                                 throw err; 
                             }
+                            data.id=res.length+1;
+                            console.log("0****0");
+                            console.log(data);
+                            respo.render("index.ejs",{data});
                         });
                     } catch{
                         console.log("eRROR");
@@ -73,7 +77,9 @@ app.post("/qr",(req,res)=>{
             } catch{
                 console.log("eRROR");
             }   
-            res.render("index.ejs",{data});
+            console.log("****0");
+            console.log(data);
+            
         }
     });
 });  
@@ -128,6 +134,26 @@ app.post("/marking",(req,res)=>{
             else{
                 res.send("Attendance Marked!!");
             }
+            
+        });
+    }catch{
+        res.send("Access Denied!!");
+        console.log("eRROR");
+    }
+}); 
+
+app.post("/list",(req,res)=>{
+    let data=req.body;
+    let cid=data.cid;
+    let qts=`Select PRN, SNAME FROM STUDENT WHERE PRN IN (SELECT PRN FROM ATTENDANCE WHERE CID = ${cid})`;
+    try{
+        connection.query(qts,(err,rest)=>{
+            if(err)
+            {
+                // res.render("prncall.ejs",{data});
+            }
+            console.log(rest);
+            res.send(rest);
             
         });
     }catch{
