@@ -60,6 +60,11 @@ input
     border-radius: 8px;
     background-color: rgb(255, 235, 120);
 }
+#hide
+{
+    width: 0px;
+    height: 0px;
+}
     </style>
 </head>
 <body>
@@ -70,26 +75,27 @@ input
      </nav>
      <div>
         <div class="frm">
-            <form action="/qr" method="post">
+            <form action="/marking" method="post">
                 <div class="branch" id="inn">
-                    BRANCH :&nbsp;&nbsp;
+                    BRANCH :&nbsp;&nbsp;<%= data[0] %>
                 </div>
                 <br>
                 <div class="batch" id="inn">
-                    BATCH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;
+                    BATCH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<%= data[1] %>
                 </div>
                 <br>
                 <div class="sec" id="inn">
-                    SECTION :&nbsp;&nbsp;
+                    SECTION :&nbsp;&nbsp;<%= data[2] %>
                 </div>
                 <br>
                 <div class="sub" id="inn">
-                    SUBJECT :&nbsp;&nbsp;
+                    SUBJECT :&nbsp;&nbsp;<%= data[3] %>
                 </div>
                 <br>
                 <div class="sub" id="inn">
                     PRN :&nbsp;&nbsp;
-                    <input type="number" name="prn">
+                    <input type="number" id="prn" name="prn">
+                    <input type="number" id="hide" name="cid" value="<%= data[4] %>">
                 </div>
                 <br>
                 <div class="but">
