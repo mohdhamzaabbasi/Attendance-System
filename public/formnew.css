@@ -1,0 +1,111 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation styling */
+nav {
+    background: linear-gradient(to bottom right, #2a1449, #08002e); /* Darker purple gradient background */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Extend the header to cover the entire width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.head {
+    display: flex;
+    align-items: center;
+}
+
+/* Form container styling */
+.background {
+    background: linear-gradient(to bottom right, #2a1449, #08002e); /* Darker purple gradient background */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frm {
+    background-color: #1e092f; /* Even darker purple color */
+    border-radius: 20px; /* Rounded rectangle shape */
+    padding: 20px; /* Add padding to all sides */
+    width: 550px; /* Width of the box */
+    height: 500px; /* Height of the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Input styling */
+.input-container {
+    width: 100%; /* Make inputs full width */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 7px; /* Add padding to all sides */
+    margin-bottom: 15px;
+}
+
+label {
+    margin-right: 10px; /* Add spacing between label and input */
+    color: rgba(255, 255, 255, 0.8); /* White text with opacity */
+    font-size: 18px; /* Increased font size */
+    width: 80px; /* Fixed width for labels */
+}
+
+input[type="password"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* White border with opacity */
+    background-color: rgba(0, 0, 0, 0.3); /* Darker black background with opacity */
+    color: white; /* White text */
+    width: calc(100% - 90px); /* Adjust width of inputs */
+    font-size: 16px; /* Increased font size */
+}
+
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* White border with opacity */
+    background: linear-gradient(to bottom right, #2a1449, #08002e); /* Same gradient background color as outside the box */
+    color: white; /* White text */
+    width: calc(100% - 90px); /* Adjust width of dropdowns */
+    font-size: 16px; /* Increased font size */
+}
+
+select option {
+    background: linear-gradient(to bottom right, #2a1449, #08002e); /* Same gradient background color as outside the box */
+    color: black; /* White text */
+    border: none; /* Remove border */
+}
+
+/* Button styling */
+.button-container {
+    width: 100%; /* Make button full width */
+    text-align: center;
+    margin-top: 15px; /* Add margin to separate button from inputs */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #1abc9c; /* Teal color */
+    color: white;
+    cursor: pointer;
+    font-size: 18px; /* Increased font size */
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add shadow for depth */
+}
+
+button:hover {
+    background: #006d5b; /* Dark teal color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
