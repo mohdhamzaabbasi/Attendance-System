@@ -28,11 +28,10 @@ try{
     });
 } catch{
     console.log("eRROR");
-}   
-app.get("/",(req,res)=>{
-    res.render("new.ejs");
+}       
+app.get("/newclass",(req,res)=>{
+    res.render("indexnew.ejs");
 });
-   
 app.post("/qr",(req,respo)=>{
     let data=req.body;
     console.log(data);
@@ -68,7 +67,7 @@ app.post("/qr",(req,respo)=>{
                             data.id=res.length+1;
                             console.log("0****0");
                             console.log(data);
-                            respo.render("index.ejs",{data});
+                            respo.render("qrgenerator.ejs",{data});
                         });
                     } catch{
                         console.log("eRROR");
@@ -120,7 +119,6 @@ app.get("/:branch/:batch/:sec/:sub/:deadline",(req,res)=>{
             }
     
 });
-
 app.post("/marking",(req,res)=>{
     let data=req.body;
     console.log(data);
