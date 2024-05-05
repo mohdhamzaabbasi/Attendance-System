@@ -112,7 +112,7 @@ app.get("/:branch/:batch/:sec/:sub/:deadline",(req,res)=>{
                     }
                     else
                     {
-                        res.send("QR EXPIRED");
+                        res.render("failure.ejs");
                     }
                 });
             } catch{
@@ -131,7 +131,7 @@ app.post("/marking",(req,res)=>{
                 res.render("prncall.ejs",{data});
             }
             else{
-                res.send("Attendance Marked!!");
+                res.render("success.ejs");
             }
             
         });
@@ -150,11 +150,11 @@ app.post("/list",(req,res)=>{
         connection.query(qts,(err,rest)=>{
             if(err)
             {
-                // res.render("prncall.ejs",{data});
+                res.send("Failure");
             }
             console.log("kya hua?");
             console.log(rest);
-            res.send(rest);
+            res.render("list.ejs",{rest});
             
         });
     }catch{
@@ -162,18 +162,3 @@ app.post("/list",(req,res)=>{
         console.log("eRROR");
     }
 }); 
-
-app.get("/test",(req,res)=>{
-    let qt="SELECT * FROM CLASS";
-    try{
-        connection.query(qt,(err,rest)=>{
-            if(err)
-            {
-                throw err; 
-            }
-            res.send(rest);
-        });
-        } catch{
-        console.log("eRROR");
-      }
-});
