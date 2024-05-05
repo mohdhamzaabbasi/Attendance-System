@@ -25,6 +25,7 @@ try{
         {
             throw err; 
         }
+        console.log("started!!");
     });
 } catch{
     console.log("eRROR");
@@ -45,7 +46,7 @@ app.post("/qr",(req,respo)=>{
         console.log(resp);
         if(resp.length==0)
         {
-            respo.redirect("/");
+            respo.redirect("/newclass");
         }
         else
         {
@@ -57,7 +58,7 @@ app.post("/qr",(req,respo)=>{
                         throw err; 
                     }
                     const date=new Date();
-                    let qts=`INSERT INTO CLASS (CID, SID, FID, DID, TIMESTAMP, STATUS, secid) VALUE(${res.length+1},${resp[0].SID},${resp[0].FID},0, '2024-03-16 12:00:00',FALSE,${resp[0].SECID});`;
+                    let qts=`INSERT INTO CLASS (CID, SID, FID,TIMESTAMP, STATUS, secid) VALUE(${res.length+1},${resp[0].SID},${resp[0].FID}, '2024-03-16 12:00:00',FALSE,${resp[0].SECID});`;
                     try{
                         connection.query(qts,(err,rest)=>{
                             if(err)
@@ -65,9 +66,9 @@ app.post("/qr",(req,respo)=>{
                                 throw err; 
                             }
                             data.id=res.length+1;
-                            console.log("0****0");
+                            console.log("ye hai sex");
                             console.log(data);
-                            respo.render("qrgenerator.ejs",{data});
+                            respo.render("newqrgen.ejs",{data});
                         });
                     } catch{
                         console.log("eRROR");
@@ -142,14 +143,16 @@ app.post("/marking",(req,res)=>{
 
 app.post("/list",(req,res)=>{
     let data=req.body;
-    let cid=data.cid;
-    let qts=`Select PRN, SNAME FROM STUDENT WHERE PRN IN (SELECT PRN FROM ATTENDANCE WHERE CID = ${cid})`;
+    let clid=data.cid;
+    console.log(data);
+    let qts=`Select PRN, SNAME FROM STUDENT WHERE PRN IN (SELECT PRN FROM ATTENDANCE WHERE CID = ${clid})`;
     try{
         connection.query(qts,(err,rest)=>{
             if(err)
             {
                 // res.render("prncall.ejs",{data});
             }
+            console.log("kya hua?");
             console.log(rest);
             res.send(rest);
             
@@ -159,3 +162,18 @@ app.post("/list",(req,res)=>{
         console.log("eRROR");
     }
 }); 
+
+app.get("/test",(req,res)=>{
+    let qt="SELECT * FROM CLASS";
+    try{
+        connection.query(qt,(err,rest)=>{
+            if(err)
+            {
+                throw err; 
+            }
+            res.send(rest);
+        });
+        } catch{
+        console.log("eRROR");
+      }
+});

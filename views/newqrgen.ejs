@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Form</title>
+    <link rel="stylesheet" href="newqrgen.css">
+</head>
+<body>
+    <nav>
+        <div class="head">
+        </div>
+    </nav>
+    <div class="background">
+        <div class="frm">
+            <div id="qrcode-container" class="qr">
+                <img id="qrcode" src="" alt="QR Code">
+            </div>
+            <form action="/list" method="post">
+                <input type="text" name="cid" id="hide" value="<%=data.id%>">
+                <button>Close!</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const data = <%- JSON.stringify(data) %>
+    </script>
+    <script src="pqr.js"></script>
+</body>
+</html>
